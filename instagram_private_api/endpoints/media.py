@@ -587,3 +587,18 @@ class MediaEndpointsMixin(object):
         endpoint = 'media/{story_pk!s}/list_reel_media_viewer/'.format(
             story_pk=story_pk)
         return self._call_api(endpoint, query=kwargs)
+
+    def story_voters(self, media_id, poll_id, **kwargs):
+        """
+        Get list of story' poll voters
+
+        :param media_id: ID of the media (story)
+        :param poll_id: ID of the poll
+        :param kwargs:
+            **max_id**: For pagination
+        :return:
+        """
+        endpoint = 'media/{media_id!s}/{poll_id!s}/story_poll_voters/'.format(
+            media_id=media_id,
+            poll_id=poll_id)
+        return self._call_api(endpoint, query=kwargs)
